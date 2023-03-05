@@ -3,15 +3,11 @@ document.addEventListener("DOMContentLoaded", () => {
 //Capturas del DOM
 const carTable = document.querySelector('#carTable');
 const carTableBody = document.querySelector('#carTableBody');
-
 const proCardArt = document.querySelector('#proCardArt');
-const arrayData = JSON.parse(localStorage.getItem("arrayData")) || [];
-
-const emptyCart = document.querySelector('.emptyCart');
 
 
 //var/const declaradas
-
+const arrayData = JSON.parse(localStorage.getItem("arrayData")) || [];
 
 
 //EVENTOS ++++++++++++++++++++++++++++++++++++++++++++
@@ -101,7 +97,7 @@ const paintPro =async () => {
 //pintar productos a TABLA desde LocalStorage
 const paintPopTable =async () => {
 
-    let cosa = await getLocal();
+    let cosa = getLocal();
     console.log(cosa);
 
     cosa.forEach((item) => {
@@ -137,7 +133,7 @@ const paintPopTable =async () => {
         const tableErase = document.createElement('TD');
             const eraseBtn = document.createElement('BUTTON');
             eraseBtn.classList.add('eraseBtn');
-            eraseBtn.textContent = "Go to purchase"
+            eraseBtn.textContent = "Delete product"
             tableErase.append(eraseBtn);
 
         tableR.append(tableDataImg, tableDataName, tableDataPrice, tableDataQty, tableDataTotal);

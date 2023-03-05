@@ -9,14 +9,18 @@
 </head>
 <body>
 
-    <header class="headerTitle centerText"> <!--! Contenedor, 'Shopping cart practice' -->
-        <p>Shopping Cart Table - K</p>
+    <header> <!--Banner -->
+        <div>
+            <figure>
+                <img id="banner" src="../assets/Banner.png" alt="Boton carrito compra"> <!--todo elementgraph carrito de compra -->
+            </figure>
+        </div>
     </header>
     
     <section id="headerShop"><!--* Título (Products) -->
-        <h1>Products</h1>
+        <h1>Shopping cart - selected</h1>
+        <p id="shipMsg"><b>free-shipping over 45€ purchases</b></p>
     </section>
-
     <section>
         <table id="carTable2" class="centerText">
             <thead id="carTableHeader">
@@ -33,7 +37,7 @@
     </section>
 
     <div>
-        <button id="goBackBtn">Go back</button>
+        <button class="jumpBtn" id="goBackBtn">Go back</button>
     </div>
 
     <footer>
