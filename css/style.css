@@ -1,0 +1,205 @@
+/**For ALL & RECLICLE ++++++++++++++*/
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.centerText {
+    text-align: center;
+}
+
+.border {
+    border: 2px solid black;
+}
+
+.hidden {
+    visibility: hidden;
+}
+
+footer {
+    border-top: 2px solid black;
+
+}
+
+
+/**HEADER ++++++++++++++++++++++++ */
+.headerTitle p{
+    color:rgb(131, 119, 198);
+    background-color: black;
+    font-family:sans-serif;
+    font-size: 50px;
+    padding: 30px;
+    transition: 0.5s;
+}
+
+.headerTitle p:hover {
+    color: whitesmoke;
+}
+
+.gridContainerMain {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    width: 80%;
+    margin: 10px auto;
+
+    border: 2px solid black;
+    gap: 1%;
+    justify-items: center;
+}
+
+.gridCards {
+    display: grid;
+    justify-items: center;
+    transition: 1s;
+}
+
+.cardImg {
+    max-width: 90%;
+    border-radius: 10%;
+    margin: 4%;
+    box-shadow: 1px 10px 20px 1px black;
+}
+
+.gridCards:hover {
+    transform:scale(1.1);
+}
+
+/**GENERALS ++++++++++++++++++++++ */
+
+#headerShop {
+    position: relative;
+}
+
+#img_carritoCompra {
+    max-width: 4%;
+    transition: 1s;
+    padding: 0.5%;
+}
+
+#img_carritoCompra:hover {
+    animation: tilt-n-move-shaking 0.7s infinite;
+    border-radius: 20%;
+    background-color: rgb(207, 227, 252);
+}
+
+figure {
+    display: flex;
+    justify-content: flex-end;
+    margin: 4%;
+    margin-right: 9%;
+}
+
+h1 {
+    font-family: sans-serif;
+    font-size: 40px;
+    margin-left: 8%;
+    position: absolute;
+    top: 30px;
+    border-bottom: 2px solid black;
+}
+
+#carTable {
+    display: flex;
+
+    background-color: rgb(196, 214, 255);
+
+    position: absolute;
+    left: 50%;
+    top: 90%;
+}
+
+#carTable2 {
+    display: grid;
+    margin: 0 auto;
+    align-content: center;
+
+    background-color: rgb(196, 214, 255);
+
+    margin-top: 10%;
+    width: 50%;
+
+}
+
+#carTableHeader th{
+    font-family: sans-serif;
+    padding-right: 40px;
+    padding-left: 40px;
+}
+
+.add2cart {
+    text-decoration: none;
+    font-family:Tahoma;
+    background-color: rgb(207, 227, 252);
+    border: none;
+    padding: 3%;
+    border-radius: 20%;
+    box-shadow: 1px 1px 5px 1px black;
+}
+
+.add2cart:hover {
+    border: 2px solid rgb(131, 119, 198);
+    background-color: whitesmoke;
+    box-shadow: none;
+}
+.tilt-n-move-shaking {
+    transition: 1s;
+}
+
+
+.tilt-n-move-shaking:hover {
+    animation: tilt-n-move-shaking 0.6s infinite;
+}
+
+#goBackBtn {
+    text-decoration: none;
+    font-family:Tahoma;
+    background-color: rgb(90, 148, 219);
+    border: none;
+    padding: 1%;
+    border-radius: 20%;
+    box-shadow: 1px 1px 5px 1px black;
+    transition: 0.5s;
+}
+
+#goBackBtn:hover {
+    border: 2px solid rgb(131, 119, 198);
+    background-color: whitesmoke;
+    box-shadow: none;
+}
+
+/**MEDIA QUERY +++++++++++++++++++ */
+/* ===================================
+                     media query 768px
+======================================*/
+@media screen and (min-width:768px) {
+
+}
+/*768px end.*/
+
+/* ===================================
+                     media query 992px
+======================================*/
+@media screen and (min-width:992px) {
+
+}
+/*992px end.*/
+
+/* ===================================
+                    media query 1200px
+======================================*/
+@media screen and (min-width:1200px) {
+
+}
+/*1200px end.*/
+
+/**KEY FRAMES ++++++++++++++++++++ */
+
+/*key frame para hacer saltar el BTN de 'ADD 2 CART" */
+@keyframes tilt-n-move-shaking {
+    0% { transform: translate(0, 0) rotate(0deg); }
+    25% { transform: translate(5px, 5px) rotate(5deg); }
+    50% { transform: translate(0, 0) rotate(0deg); }
+    75% { transform: translate(-5px, 5px) rotate(-5deg); }
+    100% { transform: translate(0, 0) rotate(0deg); }
+  }

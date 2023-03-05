@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carrito de compra, Kevin</title>
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+
+    <header class="headerTitle centerText"> <!--! Contenedor, 'Shopping cart practice' -->
+        <p>Shopping Cart Practice - K</p>
+    </header>
+    
+    <section id="headerShop"><!--* Título (Products) -->
+        <h1>Products</h1>
+        <figure>
+            <img id="img_carritoCompra" src="../assets/carritoCompraPNG.png" alt="Boton carrito compra"> <!--todo elementgraph carrito de compra -->
+        </figure>
+        <table id="carTable" class="hidden">
+            <thead id="carTableHeader">
+                <tr class="centerText">
+                    <th id="productPreview" class="centerText">Preview</th>
+                    <th>Product</th>
+                    <th>Price</th>
+                    <th>Qty.</th>
+                    <th>Sub-total</th>
+                </tr>
+            </thead>
+            <tbody id="carTableBody"><!-- se añade de forma dinámica los prodcutos añadidos al carrito--></tbody>
+        </table>
+    </section>
+
+    <section>
+        <article id="proCardArt" class="gridContainerMain">
+                <!--! Contenedor de productos a mostrar -->
+        </article>
+    </section>
+
+    <div>
+        <button id="prepurchaseBtn">Pre-purchase</button>
+    </div>
+
+    <footer>
+        <p>all rights reserved</p>
+    </footer>
+<script src="../js/main.js"></script>    
+</body>
+</html>
