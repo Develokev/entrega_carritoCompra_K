@@ -90,8 +90,6 @@ const paintPro =async () => {
         cardAdd.classList.add('add2cart', 'tilt-n-move-shaking');
         cardAdd.textContent = "Add to cart"
         cardAdd.dataset['id'] = item.id
-        console.log(item.rating);
-
 
         proCard.append(cardImg, cardProName, cardPrice, paintStars(item.rating), cardAdd);
         proCardArt.append(proCard);
@@ -134,9 +132,9 @@ const paintPopTable =async () => {
             
             const tableDelete = document.createElement('TD');
                 const deleteBtn = document.createElement('BUTTON');
-                deleteBtn.classList.add('deleteBtn');
-                deleteBtn.textContent = "Delete product"
-                tableDelete.append(deleteBtn);
+                    deleteBtn.classList.add('jumpBtn');
+                    deleteBtn.textContent = "Delete product"
+                    tableDelete.append(deleteBtn);
     
                 // tableR2.append(tableDelete);
                 // carTableBody.append(tableR2);
@@ -145,11 +143,11 @@ const paintPopTable =async () => {
         carTableBody.append(tableR);
     })
         const tableEmptyBtn = document.createElement('TD');
-        const emptyBtn = document.createElement('BUTTON');
-        emptyBtn.classList.add('emptyCart');
-        emptyBtn.textContent = "Empty Cart"
-        tableEmptyBtn.append(emptyBtn);
-        carTableBody.append(tableEmptyBtn);
+            const emptyBtn = document.createElement('BUTTON');
+                emptyBtn.classList.add('emptyCart', 'jumpBtn');
+                emptyBtn.textContent = "Empty Cart"
+                tableEmptyBtn.append(emptyBtn);
+                carTableBody.append(tableEmptyBtn);
 }
 
 //GENERAL FUNCTIONS +++++++++++++++++++++++++++++++//
@@ -202,11 +200,21 @@ const paintStars = (rating) => {
             return divStars;
 }
 
+
+
 const init = () => {
-    fetchProducts();
-    getLocal();
-    paintPopTable();
-    paintPro();
+    let ruta = location.toString();
+
+    if(ruta.includes('cart')) {
+        fetchProducts();
+        getLocal();
+        paintPopTable();
+    } else {
+        fetchProducts();
+        getLocal();
+        paintPro();
+        paintPopTable();
+    }
 }
 init();
 //CONTENT LOADED.

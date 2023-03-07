@@ -123,6 +123,8 @@ h1 {
     position: absolute;
     left: 35%;
     top: 90%;
+
+    opacity: 90%;
 }
 
 td img {
@@ -139,17 +141,6 @@ td {
 
 #proCardArt {
     font-family: sans-serif;
-}
-
-#carTable2 {
-    display: grid;
-    margin: 0 auto;
-    align-content: center;
-
-    background-color: rgb(196, 214, 255);
-
-    margin-top: 10%;
-    width: 50%;
 }
 
 #carTableHeader th{
@@ -173,6 +164,7 @@ td {
     background-color: whitesmoke;
     box-shadow: none;
 }
+
 .tilt-n-move-shaking {
     transition: 1s;
 }
