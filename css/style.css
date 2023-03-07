@@ -46,8 +46,6 @@ footer {
     width: 80%;
     margin: 10px auto;
 
-    border: 1px solid black;
-
     gap: 4%;
     justify-items: center;
 }
@@ -62,6 +60,9 @@ footer {
     max-width: 90%;
     border-radius: 10%;
     margin: 4%;
+}
+
+.cardImg:hover {
     box-shadow: 1px 10px 20px 1px black;
 }
 
