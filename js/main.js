@@ -5,9 +5,10 @@ const carTable = document.querySelector('#carTable');
 const carTableBody = document.querySelector('#carTableBody');
 const proCardArt = document.querySelector('#proCardArt');
 
-
 //var/const declaradas
 const arrayData = JSON.parse(localStorage.getItem("arrayData")) || [];
+
+const stars = ['assets/star_yellow.png', 'assets/star_gray.png']
 
 
 //EVENTOS ++++++++++++++++++++++++++++++++++++++++++++
@@ -23,17 +24,18 @@ document.addEventListener('click', ({target}) => {
     }
 
     if (target.matches('#prepurchaseBtn')) {
-        location.assign('../html/cart.html');
+        location.assign('html/cart.html');
     }
 
     if (target.matches('#goBackBtn')) {
-        location.assign('../html/index.html');
+        location.assign('../index.html');
     }
 
     if (target.matches('.emptyCart')) {
         localStorage.removeItem('arrayData')
-        location.assign('../html/index.html');
+        location.assign('index.html');
     }
+
 });
 
 //FUNCIONES ++++++++++++++++++++++++++++++++++++++++++
@@ -44,7 +46,6 @@ const fetchProducts = async () => {  //
         let peticion;
         
         peticion = await fetch('https://dummyjson.com/products/category/mens-watches');
-            (console.log(peticion));
 
         if (peticion.ok) {
             const resp = await peticion.json();
@@ -69,6 +70,7 @@ const paintPro =async () => {
     const {ok, resp} = await fetchProducts();
     const {products} = resp;
     
+    
     products.forEach((item) => {
         const proCard = document.createElement('ARTICLE');
         proCard.classList.add('gridCards');
@@ -88,17 +90,18 @@ const paintPro =async () => {
         cardAdd.classList.add('add2cart', 'tilt-n-move-shaking');
         cardAdd.textContent = "Add to cart"
         cardAdd.dataset['id'] = item.id
+        console.log(item.rating);
 
-        proCard.append(cardImg, cardProName, cardPrice, cardAdd);
+
+        proCard.append(cardImg, cardProName, cardPrice, paintStars(item.rating), cardAdd);
         proCardArt.append(proCard);
-    });
+    }); 
 }
 
 //pintar productos a TABLA desde LocalStorage
 const paintPopTable =async () => {
 
     let cosa = getLocal();
-    console.log(cosa);
 
     cosa.forEach((item) => {
         let cont = 0;
@@ -111,37 +114,42 @@ const paintPopTable =async () => {
             tableDataImg.append(tableImg);
 
         const tableDataName = document.createElement('TD');
+            tableDataName.classList.add('centerText');
             tableDataName.textContent = item.title;
         
         const tableDataPrice = document.createElement('TD');
+            tableDataPrice.classList.add('centerText');
             tableDataPrice.textContent = item.price;
         
         const tableDataQty = document.createElement('TD');
+            tableDataQty.classList.add('centerText');
             tableDataQty.textContent = cont++;
 
         const tableDataTotal = document.createElement('TD');
+            tableDataTotal.classList.add('centerText');
             tableDataTotal.textContent = item.price*tableDataQty;
         
-        const tableR2 = document.createElement('TR');
-        
-        const tableEmptyBtn = document.createElement('TD');
-            const emptyBtn = document.createElement('BUTTON');
-            emptyBtn.classList.add('emptyCart');
-            emptyBtn.textContent = "Empty Cart"
-            tableEmptyBtn.append(emptyBtn);
-        
-        const tableErase = document.createElement('TD');
-            const eraseBtn = document.createElement('BUTTON');
-            eraseBtn.classList.add('eraseBtn');
-            eraseBtn.textContent = "Delete product"
-            tableErase.append(eraseBtn);
+            // const tableR2 = document.createElement('TR');
+            
+            
+            const tableDelete = document.createElement('TD');
+                const deleteBtn = document.createElement('BUTTON');
+                deleteBtn.classList.add('deleteBtn');
+                deleteBtn.textContent = "Delete product"
+                tableDelete.append(deleteBtn);
+    
+                // tableR2.append(tableDelete);
+                // carTableBody.append(tableR2);
 
-        tableR.append(tableDataImg, tableDataName, tableDataPrice, tableDataQty, tableDataTotal);
-
-        tableR2.append(tableEmptyBtn, tableErase);
-        
-        carTableBody.append(tableR, tableR2);
+        tableR.append(tableDataImg, tableDataName, tableDataPrice, tableDataQty, tableDataTotal, tableDelete);
+        carTableBody.append(tableR);
     })
+        const tableEmptyBtn = document.createElement('TD');
+        const emptyBtn = document.createElement('BUTTON');
+        emptyBtn.classList.add('emptyCart');
+        emptyBtn.textContent = "Empty Cart"
+        tableEmptyBtn.append(emptyBtn);
+        carTableBody.append(tableEmptyBtn);
 }
 
 //GENERAL FUNCTIONS +++++++++++++++++++++++++++++++//
@@ -156,6 +164,7 @@ const almacenar =async (id)=>{
             title: arrayProducts.title,
             image: arrayProducts.images[0],
             price: arrayProducts.price,
+            rating: arrayProducts.rating,
         }
 
     arrayData.push(objProductos);
@@ -165,11 +174,33 @@ const almacenar =async (id)=>{
 //Setea al Local Storage
 const getLocal = () => JSON.parse(localStorage.getItem("arrayData")) || [];
 
-
 //Trae del Local Storage
 const setLocal = () => {
     localStorage.setItem("arrayData", JSON.stringify(arrayData));
 };
+
+//funcion pintar ESTRELLAS
+const paintStars = (rating) => {
+    let divStars = document.createElement('DIV');
+        divStars.classList.add('starImg');
+    let yellowStars = Math.round(rating);
+    let grayStars = 5 - yellowStars;
+
+    for (let i = 0; i < yellowStars; i++) {
+       let yellowRatingImg = document.createElement('IMG');
+        yellowRatingImg.src = stars[0];
+        yellowRatingImg.alt = "Yellow_Star"
+        divStars.append(yellowRatingImg);
+    }
+
+    for(let i = 0; i < grayStars; i++) {
+        let grayRatingImg = document.createElement('IMG');
+            grayRatingImg.src = stars[1];
+            grayRatingImg.alt = "Gray_Star"
+            divStars.append(grayRatingImg);
+    }
+            return divStars;
+}
 
 const init = () => {
     fetchProducts();

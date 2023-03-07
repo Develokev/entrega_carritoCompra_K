@@ -5,52 +5,52 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Carrito de compra, Kevin</title>
-    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
 
     <header class="headerTitle centerText"> <!--'Banner' -->
         <div>
             <figure>
-                <a href="../html/index.html">
-                    <img id="banner" src="../assets/Banner.png" alt="Boton carrito compra"> <!--todo elementgraph carrito de compra -->
+                <a href="index.html">
+                    <img id="banner" src="assets/Banner.png" alt="Boton carrito compra"> <!--todo elementgraph carrito de compra -->
                 </a>
             </figure>
         </div>
     </header>
-    
+
     <section id="headerShop"> <!-- On sale -->
         <h1>On sale - men watches</h1>
         <figure>
-            <img id="img_carritoCompra" src="../assets/carritoCompraPNG.png" alt="Boton carrito compra"> <!--todo elementgraph carrito de compra -->
+            <img id="img_carritoCompra" src="assets/carritoCompraPNG.png" alt="Boton carrito compra"> <!--todo elementgraph carrito de compra -->
         </figure>
         <table id="carTable" class="hidden">
             <thead id="carTableHeader">
                 <tr class="centerText">
-                    <th id="productPreview" class="centerText">Preview</th>
+                    <th>Preview</th>
                     <th>Product</th>
                     <th>Price</th>
                     <th>Qty.</th>
                     <th>Sub-total</th>
                 </tr>
             </thead>
-            <tbody id="carTableBody"><!-- se añade de forma dinámica los prodcutos añadidos al carrito--></tbody>
+            <tbody id="carTableBody"></tbody><!-- se añade de forma dinámica los prodcutos añadidos al carrito-->
         </table>
     </section>
 
     <section>
-        <article id="proCardArt" class="gridContainerMain">
-                <!--! Contenedor de productos a mostrar -->
+        <article id="proCardArt" class="gridContainerMain centerText">
+                <!-- Contenedor de productos a mostrar -->
         </article>
     </section>
 
     <div>
         <button type="submit" class="jumpBtn" id="prepurchaseBtn">Pre-purchase</button>
-    </div>  
+    </div>
 
     <footer>
         <p class="centerText">all rights reserved</p>
     </footer>
-<script src="../js/main.js"></script>    
+<script src="js/main.js"></script>    
 </body>
 </html>
