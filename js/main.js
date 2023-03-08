@@ -147,13 +147,6 @@ const paintPopTable = () => {
         fragment.append(tableR);
     });
         carTableBody.append(fragment);
-
-        const tableEmptyBtn = document.createElement('TD');
-            const emptyBtn = document.createElement('BUTTON');
-                emptyBtn.classList.add('emptyCart', 'jumpBtn');
-                emptyBtn.textContent = "Empty Cart"
-                tableEmptyBtn.append(emptyBtn);
-                carTableBody.append(tableEmptyBtn);
 }
 
 //GENERAL FUNCTIONS +++++++++++++++++++++++++++++++//
