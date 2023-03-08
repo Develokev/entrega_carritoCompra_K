@@ -210,6 +210,10 @@ th{
     box-shadow: none;
 }
 
+a {
+    text-decoration: none;
+}
+
 .go2checkout {
     text-decoration: none;
     font-family: Tahoma;

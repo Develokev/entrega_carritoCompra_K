@@ -25,19 +25,9 @@ document.addEventListener('click', ({target}) => {
         paintPopTable();
     }
 
-    if (target.matches('#prepurchaseBtn')) {
-        location.assign('html/cart.html');
-    }
-
-    if (target.matches('#goBackBtn')) {
-        location.assign('../index.html');
-    }
-
     if (target.matches('.emptyCart')) {
         localStorage.removeItem('arrayData')
-        location.assign('index.html');
     }
-
 });
 
 //FUNCIONES ++++++++++++++++++++++++++++++++++++++++++
@@ -159,7 +149,7 @@ const almacenar =async (id)=>{
         let objProductos = {
             id: arrayProducts.id,
             title: arrayProducts.title,
-            image: arrayProducts.images[0],
+            image: arrayProducts.images[1],
             price: arrayProducts.price,
             rating: arrayProducts.rating,
         }
@@ -216,3 +206,11 @@ const init = () => {
 init();
 //CONTENT LOADED.
 }); //todo LOAD +++++++++++++++++++++++++++++++++++++
+
+// if (target.matches('#prepurchaseBtn')) {
+    //     location.assign('html/cart.html');
+    // }
+
+    // if (target.matches('#goBackBtn')) {
+    //     location.assign('../index.html');
+    // }

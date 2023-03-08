@@ -12,7 +12,9 @@
     <header> <!--Banner -->
         <div>
             <figure>
-                <img id="banner" src="../assets/Banner.png" alt="Boton carrito compra"> <!--todo elementgraph carrito de compra -->
+                <a href="../index.html">
+                    <img id="banner" src="../assets/Banner.png" alt="Boton carrito compra"> <!--todo elementgraph carrito de compra -->
+                </a>
             </figure>
         </div>
     </header>
@@ -21,6 +23,7 @@
         <h1>Check-out - Payment</h1>
         <p id="shipMsg"><b>free-shipping over 45€ purchases</b></p>
     </section>
+
     <section>
         <div id="cardTableDiv">
             <table id="carTable" class="centerText">
@@ -31,6 +34,7 @@
                         <th>Price</th>
                         <th>Qty.</th>
                         <th>Sub-total</th>
+                        <th><a href="index.html" class="go2checkout emptyCart">Empty Cart</a></th>
                     </tr>
                 </thead>
                 <tbody id="carTableBody"><!-- se añade de forma dinámica los prodcutos añadidos al carrito--></tbody>
@@ -39,12 +43,13 @@
     </section>
 
     <div>
-        <button class="jumpBtn" id="goBackBtn">Go back shopping</button>
+        <a href="../index.html"><button class="jumpBtn">Go back shopping</button></a>
     </div>
 
     <footer>
         <p class="centerText">Payment above</p>
     </footer>
+    
 <script src="../js/main.js"></script>  
 </body>
 </html>
