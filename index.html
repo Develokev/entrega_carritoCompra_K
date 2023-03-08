@@ -24,18 +24,21 @@
         <figure>
             <img id="img_carritoCompra" src="assets/carritoCompraPNG.png" alt="Boton carrito compra"> <!--todo elementgraph carrito de compra -->
         </figure>
-        <table id="carTable" class="hidden">
-            <thead id="carTableHeader">
-                <tr class="centerText">
-                    <th>Preview</th>
-                    <th>Product</th>
-                    <th>Price</th>
-                    <th>Qty.</th>
-                    <th>Sub-total</th>
-                </tr>
-            </thead>
-            <tbody id="carTableBody"></tbody><!-- se añade de forma dinámica los prodcutos añadidos al carrito-->
-        </table>
+        <div id="cardTableDiv" class="hidden">
+            <table id="carTable" >
+                <thead id="carTableHeader">
+                    <tr class="centerText">
+                        <th>Preview</th>
+                        <th>Product</th>
+                        <th>Price</th>
+                        <th>Qty.</th>
+                        <th>Sub-total</th>
+                        <th><a href="html/cart.html" class="go2checkout">BUY</a></th>
+                    </tr>
+                </thead>
+                <tbody id="carTableBody"></tbody><!-- se añade de forma dinámica los prodcutos añadidos al carrito-->
+            </table>
+    </div>
     </section>
 
     <section>
@@ -45,7 +48,7 @@
     </section>
 
     <div>
-        <button type="submit" class="jumpBtn" id="prepurchaseBtn">Check-out</button>
+        <button type="button" class="jumpBtn" id="prepurchaseBtn">Check-out</button>
     </div>
 
     <footer>

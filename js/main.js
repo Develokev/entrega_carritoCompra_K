@@ -1,20 +1,22 @@
 document.addEventListener("DOMContentLoaded", () => {
+
 //VARIABLES ++++++++++++++++++++++++++++++++++++++++++
 //Capturas del DOM
-const carTable = document.querySelector('#carTable');
 const carTableBody = document.querySelector('#carTableBody');
 const proCardArt = document.querySelector('#proCardArt');
+const cardTableDiv = document.querySelector('#cardTableDiv');
+// const carTable = document.querySelector('#carTable');
 
 //var/const declaradas
 const arrayData = JSON.parse(localStorage.getItem("arrayData")) || [];
-
-const stars = ['assets/star_yellow.png', 'assets/star_gray.png']
+const fragment = document.createDocumentFragment();
+const stars = ['assets/star_yellow.png', 'assets/star_gray.png'];
 
 
 //EVENTOS ++++++++++++++++++++++++++++++++++++++++++++
 document.addEventListener('click', ({target}) => {
     if (target.matches('#img_carritoCompra')) {
-        carTable.classList.toggle('hidden');
+        cardTableDiv.classList.toggle('hidden');
     }
 
     if (target.matches('.add2cart')) {
@@ -97,9 +99,10 @@ const paintPro =async () => {
 }
 
 //pintar productos a TABLA desde LocalStorage
-const paintPopTable =async () => {
+const paintPopTable = () => {
 
     let cosa = getLocal();
+    cosa.innerHTML= "";
 
     cosa.forEach((item) => {
         let cont = 0;
@@ -121,11 +124,12 @@ const paintPopTable =async () => {
         
         const tableDataQty = document.createElement('TD');
             tableDataQty.classList.add('centerText');
-            tableDataQty.textContent = cont++;
+            tableDataQty.textContent = cont+1;
+            console.log(tableDataQty);
 
         const tableDataTotal = document.createElement('TD');
             tableDataTotal.classList.add('centerText');
-            tableDataTotal.textContent = item.price*tableDataQty;
+            tableDataTotal.textContent = item.price;
         
             // const tableR2 = document.createElement('TR');
             
@@ -140,8 +144,10 @@ const paintPopTable =async () => {
                 // carTableBody.append(tableR2);
 
         tableR.append(tableDataImg, tableDataName, tableDataPrice, tableDataQty, tableDataTotal, tableDelete);
-        carTableBody.append(tableR);
-    })
+        fragment.append(tableR);
+    });
+        carTableBody.append(fragment);
+
         const tableEmptyBtn = document.createElement('TD');
             const emptyBtn = document.createElement('BUTTON');
                 emptyBtn.classList.add('emptyCart', 'jumpBtn');
@@ -199,8 +205,6 @@ const paintStars = (rating) => {
     }
             return divStars;
 }
-
-
 
 const init = () => {
     let ruta = location.toString();

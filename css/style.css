@@ -84,7 +84,7 @@ footer {
 }
 
 #img_carritoCompra {
-    max-width: 4%;
+    max-width: 7%;
     transition: 1s;
     padding: 0.5%;
 
@@ -111,43 +111,51 @@ footer {
 
 h1 {
     font-family: sans-serif;
-    font-size: 40px;
-    margin-left: 8%;
+    font-size: 25px;
+
+    
     position: absolute;
     top: 20px;
     border-bottom: 2px solid black;
+    left: 8%;
 }
 
 #carTable { /*no se le puede poner display:flex porque descuadra los TDs */
     background-color: rgb(196, 214, 255);
 
     position: absolute;
-    left: 35%;
+    right: 1.5%;
     top: 90%;
 
     opacity: 90%;
+    max-width: 10px;
+
+    z-index: 1000;
 }
+
 
 td img {
     display:grid;
     margin: 0 auto;
 
-    width: 30%;
+    width: 50%;
     border-radius: 20%;
 }
 
 td {
     font-family: sans-serif;
+    font-size: 10px;
 }
 
 #proCardArt {
     font-family: sans-serif;
 }
 
-#carTableHeader th{
+th{
     font-family: sans-serif;
-    padding-right: 40px;
-    padding-left: 40px;
+    font-size: 12px;
+    padding-right: 10px;
+    padding-left: 10px;
 }
 
 .add2cart {
@@ -176,21 +184,47 @@ td {
 }
 
 .jumpBtn {
-    text-decoration: none;
-    font-family:Tahoma;
-    background-color: rgb(90, 148, 219);
-    border: none;
-    padding: 1%;
-    border-radius: 20%;
-    box-shadow: 1px 1px 5px 1px black;
-    transition: 0.5s;
-    margin: 0 auto;
     display:flex;
     margin-top: 3%;
     margin-bottom: 2%;
+
+    text-decoration: none;
+    font-family:Tahoma;
+    background-color: rgb(90, 148, 219);
+    font-size: 8px;
+
+    border: none;
+    padding: 1%;
+    max-width: 65%;
+
+    border-radius: 20%;
+    box-shadow: 1px 1px 5px 1px black;
+    transition: 0.5s;
+
+    margin: 0 auto;
 }
 
 .jumpBtn:hover {
+    border: 2px solid rgb(131, 119, 198);
+    background-color: whitesmoke;
+    box-shadow: none;
+}
+
+.go2checkout {
+    text-decoration: none;
+    font-family: Tahoma;
+
+    color: black;
+    background-color: rgb(90, 148, 219);
+
+    padding: 1%;
+    border-radius: 20%;
+
+    max-width: 15%;
+    transition: 0.5s;
+}
+
+.go2checkout:hover {
     border: 2px solid rgb(131, 119, 198);
     background-color: whitesmoke;
     box-shadow: none;
@@ -202,6 +236,7 @@ td {
     margin-top: 2%;
 
     font-family: sans-serif;
+    font-size: 12px;
     color: rgb(146, 150, 150);
 }
 
@@ -214,6 +249,45 @@ td {
         display: grid;
         grid-template-columns: 1fr 1fr;
     }
+
+    h1 {
+        color:rgb(0, 0, 0);
+        font-size: 35px;
+        margin-left: 15%;
+    }
+
+    #img_carritoCompra {
+        max-width: 5%;
+    }
+
+    #carTable {
+        right: 10%;
+    }
+
+    td {
+        font-size: 15px;
+    }
+
+    td img {
+        width: 70px;
+    }
+
+    th {
+        font-size: 20px;
+    }
+
+    .jumpBtn {
+        font-size: 12px
+    }
+
+    h1 {
+        left: -80px;
+        top: 70px
+    }
+
+    #shipMsg {
+        font-size: 18px;
+    }
 }
 /*768px end.*/
 
@@ -225,6 +299,46 @@ td {
         display: grid;
         grid-template-columns: 1fr 1fr 1fr;
     }
+
+    h1 {
+        color:rgb(0, 0, 0);
+        font-size: 45px;
+        margin-left: 10%;
+    }
+
+    #img_carritoCompra {
+        max-width: 6%;
+    }
+
+    #carTable {
+        right: 10%;
+    }
+
+    td {
+        font-size: 18px;
+    }
+
+    td img {
+        width: 100px;
+    }
+
+    th {
+        font-size: 25px;
+        padding-left: 30px;
+    }
+
+    .jumpBtn {
+        font-size: 14px
+    }
+
+    h1 {
+        left: -40px;
+        top: 70px
+    }
+
+    #shipMsg {
+        font-size: 23px;
+    }
 }
 /*992px end.*/
 
@@ -235,6 +349,47 @@ td {
     .gridContainerMain {
         display: grid;
         grid-template-columns: 1fr 1fr 1fr 1fr;
+    }
+
+    h1 {
+        color:rgb(0, 0, 0);
+        font-size: 50px;
+        margin-left: 10%;
+    }
+
+    #img_carritoCompra {
+        max-width: 6%;
+    }
+
+    #carTable {
+        right: 20%;
+    }
+
+    td {
+        font-size: 20px;
+    }
+
+    td img {
+        width: 110px;
+    }
+
+    th {
+        font-size: 28px;
+        padding-left: 30px;
+        padding-right: 30px;
+    }
+
+    .jumpBtn {
+        font-size: 18px;
+        width: 100px;
+    }
+    
+    h1 {
+        top: 100px;
+    }
+
+    #shipMsg {
+        font-size: 30px;
     }
 }
 /*1200px end.*/
