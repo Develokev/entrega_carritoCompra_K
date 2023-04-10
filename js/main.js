@@ -156,6 +156,7 @@ const almacenar =async (id)=>{
 
     arrayData.push(objProductos);
     setLocal();
+    paintPopTable();
 }
 
 //Setea al Local Storage
@@ -206,11 +207,3 @@ const init = () => {
 init();
 //CONTENT LOADED.
 }); //todo LOAD +++++++++++++++++++++++++++++++++++++
-
-// if (target.matches('#prepurchaseBtn')) {
-    //     location.assign('html/cart.html');
-    // }
-
-    // if (target.matches('#goBackBtn')) {
-    //     location.assign('../index.html');
-    // }
