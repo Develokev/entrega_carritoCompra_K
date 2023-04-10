@@ -22,7 +22,6 @@ document.addEventListener('click', ({target}) => {
     if (target.matches('.add2cart')) {
         const id = target.dataset.id;
         almacenar(id);
-        paintPopTable();
     }
 
     if (target.matches('.emptyCart')) {
@@ -89,10 +88,12 @@ const paintPro =async () => {
 }
 
 //pintar productos a TABLA desde LocalStorage
-const paintPopTable = () => {
-
-    let cosa = getLocal();
+const paintPopTable = async () => {
+    
+    let cosa = await getLocal();
     cosa.innerHTML= "";
+    carTableBody.innerHTML="";
+    
 
     cosa.forEach((item) => {
         let cont = 0;
@@ -115,14 +116,12 @@ const paintPopTable = () => {
         const tableDataQty = document.createElement('TD');
             tableDataQty.classList.add('centerText');
             tableDataQty.textContent = cont+1;
-            console.log(tableDataQty);
 
         const tableDataTotal = document.createElement('TD');
             tableDataTotal.classList.add('centerText');
             tableDataTotal.textContent = item.price;
         
             // const tableR2 = document.createElement('TR');
-            
             
             const tableDelete = document.createElement('TD');
                 const deleteBtn = document.createElement('BUTTON');
@@ -137,6 +136,7 @@ const paintPopTable = () => {
         fragment.append(tableR);
     });
         carTableBody.append(fragment);
+        setLocal();
 }
 
 //GENERAL FUNCTIONS +++++++++++++++++++++++++++++++//
@@ -153,6 +153,12 @@ const almacenar =async (id)=>{
             price: arrayProducts.price,
             rating: arrayProducts.rating,
         }
+    if(arrayProducts.lenght == 0){
+
+        arrayProducts.contador = 0
+        arrayProducts.contador ++
+        console.log('Esto es arrayProducts', arrayProducts)
+    }
 
     arrayData.push(objProductos);
     setLocal();
@@ -194,12 +200,12 @@ const init = () => {
     let ruta = location.toString();
 
     if(ruta.includes('cart')) {
+
         fetchProducts();
-        getLocal();
-        paintPopTable();
+
     } else {
+
         fetchProducts();
-        getLocal();
         paintPro();
         paintPopTable();
     }
